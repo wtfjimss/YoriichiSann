@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YorichiSanOntop</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4">
+</video>
+<div class="bg-overlay"></div>
+
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener("load", () => {
+    const music = document.getElementById("bg-music");
+    music.volume = 0.3;
+
+    // try autoplay
+    const playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // fallback: play after first click
+            document.body.addEventListener("click", () => {
+                music.play();
+            }, { once: true });
+        });
+    }
+});
+</script>
+
+<!-- BACKGROUND EFFECT -->
+<div class="bg"></div>
+
+<div class="layout">
+
+    <!-- LEFT PANEL -->
+    <div class="side left">
+        <h2>ABOUT ME</h2>
+        <p>
+            👋 Welcome to my profile  
+            I create fun content, edits, and gaming videos.  
+            Follow me to stay updated 🔥
+        </p>
+    </div>
+
+    <!-- CENTER CARD -->
+    <div class="container">
+
+        <div class="profile">
+            <img src="profile.jpg">
+        </div>
+
+        <h1>JimxSenpai</h1>
+
+        <div class="grid">
+
+            <a href="https://www.facebook.com/YorichiiSanOntop"><i class="fab fa-facebook"></i>Facebook</a>
+            <a href="https://www.youtube.com/@YorichisanOntop"><i class="fab fa-youtube"></i>YouTube</a>
+            <a href="https://www.tiktok.com/@xoxosw0"><i class="fab fa-tiktok"></i>TikTok</a>
+            <a href="https://discord.gg/MGVNWGmevK"><i class="fab fa-discord"></i>Discord</a>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="side right">
+        <h2>WHAT I DO</h2>
+        <p>
+            🎮 Gaming content  
+            🎬 Short edits  
+            📱 Viral videos  
+            💥 Daily uploads soon!
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
